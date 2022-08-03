@@ -11,3 +11,5 @@ bash -c 'echo $0 is $0, $1 is $1, $2 is $2' foo bar biz
 information uber 
 ![image](https://user-images.githubusercontent.com/59786755/182548955-229f35e8-300a-4322-8fb8-066f1275f6a1.png)
 
+# single quote VS double quotes
+ it’s important to emphasize that the script argument (the command string after -c) must be enclosed with single quotes and not double quotes.  Otherwise the parent shell (in which you type the above command lines) would resolve any positional parameters in the script argument in the context of the parent shell
