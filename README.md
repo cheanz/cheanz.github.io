@@ -13,3 +13,5 @@ information uber
 
 # single quote VS double quotes
  it’s important to emphasize that the script argument (the command string after -c) must be enclosed with single quotes and not double quotes.  Otherwise the parent shell (in which you type the above command lines) would resolve any positional parameters in the script argument in the context of the parent shell
+" ":current shell will expand $0 and so forth excactly replace it with /bin/bash/  
+'': current shell will not expand $0 in it until all the parameters are taken into account.  --zhang yt
