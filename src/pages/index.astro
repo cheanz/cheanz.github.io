@@ -1,11 +1,100 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Terminal from '../components/Terminal.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Chean Zhang — Embedded Systems Engineer" currentPage="/">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="hero-tag">Embedded Systems &middot; IoT &middot; RTOS</span>
+      <h1>Hi, I'm <span class="accent">Chean Zhang</span></h1>
+      <p class="hero-subtitle" id="typed-target"></p>
+      <div class="btn-group">
+        <a href="/projects" class="btn btn-primary">View Projects &rarr;</a>
+        <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terminal about -->
+  <section>
+    <div class="container">
+      <Terminal title="~/about-me">
+        <p><span class="prompt">$</span> whoami</p>
+        <p>Chean Zhang — Graduate Student, Embedded Systems</p>
+        <br />
+        <p><span class="prompt">$</span> cat interests.txt</p>
+        <p>RTOS · FreeRTOS · Zephyr · Bare-Metal Programming</p>
+        <p>ARM Cortex-M · RISC-V · PCB Design · IoT Protocols</p>
+        <p>Low-Power Design · Signal Processing · Edge AI</p>
+        <br />
+        <p><span class="prompt">$</span> cat education.txt</p>
+        <p>M.S. — Embedded Systems (In Progress)</p>
+        <br />
+        <p><span class="prompt">$</span> <span class="cursor"></span></p>
+      </Terminal>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p>A selection of recent embedded systems and IoT work.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9889;</div>
+          <h3>FreeRTOS Task Scheduler Demo</h3>
+          <p>Custom priority-based task scheduler with real-time profiling dashboard, built on STM32F4.</p>
+          <div class="card-tags">
+            <span class="tag">FreeRTOS</span>
+            <span class="tag">STM32</span>
+            <span class="tag">C</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128225;</div>
+          <h3>LoRa Sensor Network</h3>
+          <p>Low-power wireless sensor mesh for environmental monitoring with edge data processing.</p>
+          <div class="card-tags">
+            <span class="tag">LoRa</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">ARM</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128295;</div>
+          <h3>OTA Firmware Updater</h3>
+          <p>Secure over-the-air firmware update system with rollback support for ESP32 fleet.</p>
+          <div class="card-tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">TLS</span>
+            <span class="tag">OTA</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-2">
+        <a href="/projects" class="btn btn-secondary">All Projects &rarr;</a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  const target = document.getElementById('typed-target');
+  if (target) {
+    const text = "Graduate researcher building reliable embedded systems — from bare-metal firmware to real-time operating systems and connected IoT devices.";
+    let i = 0;
+    const type = () => {
+      if (i < text.length) {
+        target.textContent += text[i];
+        i++;
+        setTimeout(type, 40);
+      }
+    };
+    setTimeout(type, 500);
+  }
+</script>
