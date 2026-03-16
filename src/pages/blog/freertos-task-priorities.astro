@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Understanding FreeRTOS Task Priorities — Chean Zhang" currentPage="/blog">
+  <section style="padding: 3rem 0;">
+    <div class="container article">
+      <a href="/blog" class="back-link">&larr; Back to Blog</a>
+
+      <h1>Understanding FreeRTOS Task Priorities and Starvation</h1>
+      <div class="article-meta">2026-03-10 · 5 min read · <span class="tag">FreeRTOS</span> <span class="tag">RTOS</span></div>
+
+      <p>If you've worked with FreeRTOS for any length of time, you've likely hit a situation where a low-priority task simply stops running. The system isn't frozen — your high-priority tasks are humming along — but something in the background has silently starved. Let's unpack why this happens and how to prevent it.</p>
+
+      <h2>How the Scheduler Works</h2>
+      <p>FreeRTOS uses a preemptive, priority-based scheduler by default. The highest-priority ready task always runs. If two tasks share the same priority, they round-robin with each tick. Simple enough — but the implications catch people off guard.</p>
+
+      <pre><code>// Two tasks at different priorities
+xTaskCreate(vHighTask, "High", 256, NULL, 3, NULL);
+xTaskCreate(vLowTask,  "Low",  256, NULL, 1, NULL);
+
+void vHighTask(void *pv) &lbrace;
+    for (;;) &lbrace;
+        // If this never blocks, vLowTask never runs
+        processData();
+    &rbrace;
+&rbrace;</code></pre>
+
+      <p>If <code>vHighTask</code> never yields — no <code>vTaskDelay()</code>, no semaphore wait, no queue receive with a timeout — then <code>vLowTask</code> is permanently starved.</p>
+
+      <h2>Priority Inversion</h2>
+      <p>The classic scenario: Task H (high priority) waits on a mutex held by Task L (low priority). Meanwhile, Task M (medium priority) preempts Task L. Now Task H is blocked waiting for Task L, which is blocked by Task M. The effective priority is inverted.</p>
+      <p>FreeRTOS offers <strong>priority inheritance mutexes</strong> via <code>xSemaphoreCreateMutex()</code>. When Task H blocks on a mutex held by Task L, the scheduler temporarily boosts Task L to Task H's priority.</p>
+
+      <h2>Practical Strategies</h2>
+      <p>First, every task's main loop should include at least one blocking call. Even a <code>vTaskDelay(1)</code> is enough to yield the processor.</p>
+
+      <pre><code>void vSensorTask(void *pv) &lbrace;
+    TickType_t xLastWake = xTaskGetTickCount();
+    for (;;) &lbrace;
+        readSensor();
+        // Guaranteed yield point every 100ms
+        vTaskDelayUntil(&amp;xLastWake, pdMS_TO_TICKS(100));
+    &rbrace;
+&rbrace;</code></pre>
+
+      <p>Second, use <code>configUSE_PREEMPTION</code> and <code>configUSE_TIME_SLICING</code> intentionally. If you disable time slicing, equal-priority tasks won't round-robin.</p>
+      <p>Third, instrument your system. FreeRTOS's runtime stats (<code>vTaskGetRunTimeStats()</code>) will show you exactly how much CPU time each task is consuming.</p>
+
+      <h2>Takeaway</h2>
+      <p>The scheduler does exactly what you tell it to. Starvation is a design problem, not a bug. Build every task around explicit blocking points, use priority inheritance mutexes, and monitor runtime stats.</p>
+    </div>
+  </section>
+</Layout>

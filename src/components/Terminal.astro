@@ -1,0 +1,15 @@
+---
+const { title = '~/terminal' } = Astro.props;
+---
+
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="terminal-dot red"></span>
+    <span class="terminal-dot yellow"></span>
+    <span class="terminal-dot green"></span>
+    <span class="terminal-title">{title}</span>
+  </div>
+  <div class="terminal-body">
+    <slot />
+  </div>
+</div>

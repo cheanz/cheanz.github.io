@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Blog — Chean Zhang" currentPage="/blog">
+  <section class="hero" style="padding: 5rem 0 3rem;">
+    <div class="container hero-content">
+      <span class="hero-tag">Technical Writing</span>
+      <h1><span class="accent">&gt;</span> Blog</h1>
+      <p class="hero-subtitle">Notes on embedded systems, RTOS internals, and lessons from the lab bench.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="blog-list">
+        <a href="/blog/freertos-task-priorities" class="blog-item">
+          <span class="blog-date">2026-03-10</span>
+          <div>
+            <h3>Understanding FreeRTOS Task Priorities and Starvation</h3>
+            <p class="blog-excerpt">A deep dive into how FreeRTOS handles task scheduling, common priority inversion pitfalls, and practical strategies for avoiding starvation in real-time systems.</p>
+            <div class="card-tags" style="margin-top: 0.75rem;">
+              <span class="tag">FreeRTOS</span>
+              <span class="tag">RTOS</span>
+              <span class="tag">Scheduling</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-item">
+          <span class="blog-date">2026-02-22</span>
+          <div>
+            <h3>Debugging Hard Faults on ARM Cortex-M</h3>
+            <p class="blog-excerpt">How to decode fault status registers, set up fault handlers, and trace the call stack when your firmware crashes with a HardFault.</p>
+            <div class="card-tags" style="margin-top: 0.75rem;">
+              <span class="tag">ARM</span>
+              <span class="tag">Debugging</span>
+              <span class="tag">Cortex-M</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-item">
+          <span class="blog-date">2026-01-15</span>
+          <div>
+            <h3>Low-Power Design Patterns for Battery-Operated IoT</h3>
+            <p class="blog-excerpt">Practical techniques to get your IoT sensor node below 10&#956;A average current — from sleep mode selection to peripheral clock gating.</p>
+            <div class="card-tags" style="margin-top: 0.75rem;">
+              <span class="tag">Low Power</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Battery</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-item">
+          <span class="blog-date">2025-12-08</span>
+          <div>
+            <h3>Getting Started with RISC-V: A Practical Guide</h3>
+            <p class="blog-excerpt">From architecture basics to running your first C program on a softcore — a hands-on introduction to RISC-V for embedded engineers.</p>
+            <div class="card-tags" style="margin-top: 0.75rem;">
+              <span class="tag">RISC-V</span>
+              <span class="tag">FPGA</span>
+              <span class="tag">Tutorial</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Projects — Chean Zhang" currentPage="/projects">
+  <section class="hero" style="padding: 5rem 0 3rem;">
+    <div class="container hero-content">
+      <span class="hero-tag">Portfolio</span>
+      <h1><span class="accent">&gt;</span> Projects</h1>
+      <p class="hero-subtitle">Embedded systems, firmware, and IoT work — from concept through deployment.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9889;</div>
+          <h3>FreeRTOS Task Scheduler Demo</h3>
+          <p>Custom priority-based task scheduler with real-time profiling dashboard. Implements mutex synchronization, message queues, and idle hook power management on STM32F4.</p>
+          <div class="card-tags">
+            <span class="tag">FreeRTOS</span>
+            <span class="tag">STM32</span>
+            <span class="tag">C</span>
+            <span class="tag">CMSIS</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128225;</div>
+          <h3>LoRa Sensor Network</h3>
+          <p>Low-power wireless sensor mesh for environmental monitoring. Nodes run on coin-cell batteries for 2+ years with edge-processed data aggregation before transmission.</p>
+          <div class="card-tags">
+            <span class="tag">LoRa</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">ARM Cortex-M0</span>
+            <span class="tag">PCB Design</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128295;</div>
+          <h3>OTA Firmware Updater</h3>
+          <p>Secure over-the-air firmware update pipeline with dual-bank flash, cryptographic signature verification, and automatic rollback on boot failure.</p>
+          <div class="card-tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">TLS</span>
+            <span class="tag">OTA</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128421;</div>
+          <h3>RISC-V Softcore SoC</h3>
+          <p>Minimal RISC-V RV32I softcore implemented on Lattice iCE40 FPGA. Includes UART, SPI peripherals, and a basic C runtime environment.</p>
+          <div class="card-tags">
+            <span class="tag">RISC-V</span>
+            <span class="tag">Verilog</span>
+            <span class="tag">FPGA</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128200;</div>
+          <h3>Edge AI Vibration Analyzer</h3>
+          <p>TinyML model running on Cortex-M4 for predictive maintenance. Performs FFT-based feature extraction and anomaly classification at the sensor node.</p>
+          <div class="card-tags">
+            <span class="tag">TinyML</span>
+            <span class="tag">TensorFlow Lite</span>
+            <span class="tag">DSP</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128267;</div>
+          <h3>USB-PD Battery Management System</h3>
+          <p>USB Power Delivery negotiation and multi-cell Li-ion charge management with cell balancing, thermal protection, and SOC estimation.</p>
+          <div class="card-tags">
+            <span class="tag">USB-PD</span>
+            <span class="tag">I2C</span>
+            <span class="tag">Analog</span>
+            <span class="tag">KiCad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

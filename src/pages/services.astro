@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Services — Chean Zhang" currentPage="/services">
+  <section class="hero" style="padding: 5rem 0 3rem;">
+    <div class="container hero-content">
+      <span class="hero-tag">Company</span>
+      <h1><span class="accent">&gt;</span> Services</h1>
+      <p class="hero-subtitle">Embedded systems consulting and development — from prototype to production.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#128297;</div>
+          <h3>Firmware Development</h3>
+          <p>Production-quality embedded firmware for ARM Cortex-M, RISC-V, and ESP32 platforms. RTOS and bare-metal.</p>
+          <ul class="service-detail">
+            <li>FreeRTOS / Zephyr application development</li>
+            <li>Peripheral drivers (SPI, I2C, UART, CAN)</li>
+            <li>Bootloader and OTA update systems</li>
+            <li>Power optimization and sleep mode integration</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128208;</div>
+          <h3>Hardware Design</h3>
+          <p>Schematic capture, PCB layout, and prototype bring-up for IoT and embedded products.</p>
+          <ul class="service-detail">
+            <li>Schematic design and component selection</li>
+            <li>2-6 layer PCB layout in KiCad / Altium</li>
+            <li>Design for manufacturability (DFM) review</li>
+            <li>Prototype assembly coordination</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128225;</div>
+          <h3>IoT &amp; Connectivity</h3>
+          <p>End-to-end IoT solutions — from sensor node to cloud dashboard, with secure communication throughout.</p>
+          <ul class="service-detail">
+            <li>BLE, Wi-Fi, LoRa, Zigbee integration</li>
+            <li>MQTT / CoAP protocol implementation</li>
+            <li>TLS and secure provisioning</li>
+            <li>Cloud platform integration (AWS IoT, Azure)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128269;</div>
+          <h3>Code Review &amp; Consulting</h3>
+          <p>Expert review of your embedded codebase, architecture guidance, and performance optimization.</p>
+          <ul class="service-detail">
+            <li>Firmware architecture review</li>
+            <li>MISRA-C compliance assessment</li>
+            <li>Performance profiling and optimization</li>
+            <li>Technical mentoring for embedded teams</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta-banner">
+        <h2>Have a project in mind?</h2>
+        <p>I'm available for consulting engagements and contract work. Let's discuss how I can help bring your embedded product to life.</p>
+        <a href="/contact" class="btn btn-primary">Start a Conversation &rarr;</a>
+      </div>
+    </div>
+  </section>
+</Layout>
